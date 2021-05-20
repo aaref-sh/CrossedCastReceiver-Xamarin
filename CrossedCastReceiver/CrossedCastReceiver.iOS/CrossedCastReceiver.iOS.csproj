@@ -136,4 +136,10 @@
       <Name>CrossedCastReceiver</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\send.jpg" />
+  </ItemGroup>
 </Project>

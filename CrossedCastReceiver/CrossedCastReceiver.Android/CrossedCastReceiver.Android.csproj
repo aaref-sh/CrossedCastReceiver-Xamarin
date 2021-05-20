@@ -91,13 +91,16 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\drawable\send.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrossedCastReceiver\CrossedCastReceiver.csproj">
       <Project>{AE5CC621-938A-42AE-82D7-A69F78772E53}</Project>
       <Name>CrossedCastReceiver</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\bg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

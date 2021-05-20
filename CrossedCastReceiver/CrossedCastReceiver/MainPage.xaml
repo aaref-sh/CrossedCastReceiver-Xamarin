@@ -4,13 +4,19 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              x:Class="CrossedCastReceiver.MainPage">
 
-     <skia:SKCanvasView x:Name="skiascreen" PaintSurface="skiascreen_PaintSurface"/>
-     <!--<StackLayout>
-         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-
-        <Image x:Name="screen" WidthRequest="1"/>
-    </StackLayout> -->
+     <StackLayout Orientation="Horizontal">
+        <skia:SKCanvasView x:Name="skiascreen" PaintSurface="skiascreen_PaintSurface"/>
+        <StackLayout x:Name="rest">
+            <Image x:Name="background" Source="bg.jpg" WidthRequest="0" HeightRequest="0"/>
+            <ScrollView x:Name="scroller">
+                <StackLayout x:Name="MessageList">
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="MessageBox" HorizontalOptions="CenterAndExpand"/>
+                <Image x:Name="SendButton" Source="send.jpg" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout> 
 
 </ContentPage>

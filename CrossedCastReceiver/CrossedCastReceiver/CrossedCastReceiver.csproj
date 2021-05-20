@@ -11,11 +11,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="background\bg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="background\bg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="5.0.6" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Plugins.Clipboard" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>

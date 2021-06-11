@@ -7,8 +7,7 @@
      <StackLayout Orientation="Horizontal">
         <skia:SKCanvasView x:Name="skiascreen" PaintSurface="skiascreen_PaintSurface"/>
         <StackLayout x:Name="rest">
-            <Image x:Name="background" Source="bg.jpg" WidthRequest="0" HeightRequest="0"/>
-            <ScrollView x:Name="scroller">
+            <ScrollView x:Name="scroller" VerticalOptions="StartAndExpand">
                 <StackLayout x:Name="MessageList">
                 </StackLayout>
             </ScrollView>

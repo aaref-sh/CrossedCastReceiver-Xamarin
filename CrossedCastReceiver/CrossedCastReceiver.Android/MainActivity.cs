@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
+using Android.Media;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -8,10 +9,9 @@ using CrossedCastReceiver.Droid;
 using System;
 using Xamarin.Forms;
 [assembly: Xamarin.Forms.Dependency(typeof(MessageAndroid))]
-
 namespace CrossedCastReceiver.Droid
 {
-
+    
     public class MessageAndroid : IMessage
     {
         public void LongAlert(string message)
@@ -23,7 +23,9 @@ namespace CrossedCastReceiver.Droid
             Toast.MakeText(Android.App.Application.Context, message, ToastLength.Short).Show();
         }
     }
-    [Activity(Label = "CrossedCastReceiver", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Landscape, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
+    
+    [Activity(Label = "CrossedCastReceiver", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ScreenOrientation = ScreenOrientation.Landscape, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
 

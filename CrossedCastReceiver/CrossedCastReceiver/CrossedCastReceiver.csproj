@@ -28,15 +28,34 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\StreamClient\StreamClient.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Mono.Android">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v11.0\Mono.Android.dll</HintPath>
-      <Aliases>Monoandr</Aliases>
+      <Aliases></Aliases>
     </Reference>
     <Reference Include="System.Drawing.Common">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\Facades\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="TCPClient">
+      <HintPath>C:\Users\Muhammad\Desktop\crosseder\TCPClient.dll</HintPath>
+    </Reference>
+    <Reference Include="TCPServer">
+      <HintPath>C:\Users\Muhammad\Desktop\crosseder\TCPServer.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSound">
+      <HintPath>C:\Users\Muhammad\Desktop\crosseder\WinSound.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>C:\Program Files (x86)\Microsoft\Xamarin\NuGet\xamarin.forms\5.0.0.2012\lib\MonoAndroid10.0\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="logger.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

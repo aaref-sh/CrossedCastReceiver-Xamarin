@@ -10,7 +10,7 @@ namespace CrossedCastReceiver
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new logger());
         }
 
         protected override void OnStart()

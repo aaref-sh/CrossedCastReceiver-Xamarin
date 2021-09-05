@@ -16,14 +16,12 @@ namespace VoiceClient
 		private Configuration m_Config = new Configuration();
 		private int m_SoundBufferCount = 8;
 		private WinSound.Protocol m_PrototolClient = new WinSound.Protocol(WinSound.ProtocolTypes.LH, Encoding.Default);
-		private Dictionary<NF.ServerThread, ServerThreadData> m_DictionaryServerDatas = new Dictionary<NF.ServerThread, ServerThreadData>();
 		private WinSound.Recorder m_Recorder_Client;
 		private WinSound.Player m_PlayerClient;
 		private uint m_RecorderFactor = 4;
 		private WinSound.JitterBuffer m_JitterBufferClientRecording;
 		private WinSound.JitterBuffer m_JitterBufferClientPlaying;
 		private WinSound.JitterBuffer m_JitterBufferServerRecording;
-		WinSound.WaveFileHeader m_FileHeader = new WinSound.WaveFileHeader();
 		private bool m_IsFormMain = true;
 		private long m_SequenceNumber = 4596;
 		private long m_TimeStamp = 0;
@@ -34,16 +32,19 @@ namespace VoiceClient
 		private bool m_Marker = false;
 		private int m_PayloadType = 0;
 		private uint m_SourceId = 0;
-		private Object LockerDictionary = new Object();
 		public static Dictionary<Object, Queue<List<Byte>>> DictionaryMixed = new Dictionary<Object, Queue<List<byte>>>();
-		//private Encoding m_Encoding = Encoding.GetEncoding(1252);
+		
 		private const int RecordingJitterBufferCount = 8;
 		List<String> playbackNames;
 		List<String> recordingNames;
 		string IPAddress = "192.168.1.111";
 		int connection_port = 22;
 		#endregion
-		public StreamClient(int port) => connection_port = port;
+		public StreamClient(int port, string ip)
+		{
+			this.connection_port = port;
+			this.IPAddress = ip;
+		}
 		public void Init()
 		{
 			try
@@ -491,7 +492,7 @@ namespace VoiceClient
 				Console.WriteLine(ex.Message);
 			}
 		}
-		private void OnClientConfigReceived(Object sender, Byte[] data)
+		private void OnClientConfigReceived(object sender, byte[] data)
 		{
 			try
 			{

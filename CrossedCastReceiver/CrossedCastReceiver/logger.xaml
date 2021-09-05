@@ -3,11 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CrossedCastReceiver.logger">
     <ContentPage.Content>
-        <StackLayout>
-
-            <Entry x:Name="nametb" VerticalOptions="CenterAndExpand"/>
-            <Entry x:Name="grouptb"/>
-            <Button x:Name="loginbutton" Clicked="loginbutton_Clicked"/>
-        </StackLayout>
+        <Frame BorderColor="Gray" Margin="50,30,50,30" Padding="0,0,0,0" CornerRadius="8" BackgroundColor="OldLace">
+            <StackLayout FlowDirection="RightToLeft">
+                <Label Text="الدخول للمحاضرة" HorizontalTextAlignment="Center" FontSize="30" FontFamily="Times New Roman" TextColor="White" BackgroundColor="DarkGray" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="اختر المحاضرة" Margin="20,10,20,0" FontSize="15"/>
+                    <Image x:Name="RefreshButton" Source="refresh.png" HeightRequest="20"/>
+                </StackLayout>
+                <ScrollView VerticalOptions="StartAndExpand" Margin="20,10,20,0">
+                    <StackLayout VerticalOptions="StartAndExpand" x:Name="session_list" FlowDirection="RightToLeft">
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout Orientation="Horizontal" Margin="0,0,20,10">
+                    <Entry x:Name="nametb" Placeholder="الاسم" WidthRequest="200"/>
+                    <Button x:Name="loginbutton" Text="دخول" Clicked="loginbutton_Clicked" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
     </ContentPage.Content>
 </ContentPage>

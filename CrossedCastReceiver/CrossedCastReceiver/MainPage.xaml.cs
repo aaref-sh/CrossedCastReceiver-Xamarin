@@ -11,7 +11,6 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using VoiceClient;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -62,12 +61,9 @@ namespace CrossedCastReceiver
             DeviceDisplay.KeepScreenOn = !DeviceDisplay.KeepScreenOn;
             MessagingCenter.Send<object, bool>(this, "Hide", false);
             ConfigSignalRConnection();
-            //sc.Init();
-            //sc.ConnectToServer();
             myname = logger.name;
             Thread updateCanvase = new Thread(updatecanvase);
             updateCanvase.Start();
-            speaker.Clicked += (s,e) => sc.speakertougle();
 
         }
 
@@ -99,10 +95,9 @@ namespace CrossedCastReceiver
             }
         }
         int port;
-        StreamClient sc;
         async void ConfigSignalRConnection()
         {
-            connection = new HubConnectionBuilder().WithUrl("http://" + logger.URL + "/CastHub").WithAutomaticReconnect().Build();
+            connection = new HubConnectionBuilder().WithUrl("http://" + logger.URL + ":5000/CastHub").WithAutomaticReconnect().Build();
             connection.On<string, int, int, bool, int, int>("UpdateScreen", UpdateScreen);
             connection.On<string, string>("newMessage", NewMessage);
             await connection.StartAsync();
@@ -114,8 +109,6 @@ namespace CrossedCastReceiver
             Initvars();
             await connection.InvokeAsync("getscreen");
             await connection.InvokeAsync("getMessages");
-            sc = new StreamClient(port, logger.URL);
-            sc.ConnectToServer();
 
         }
         void play(byte[] buffer)
@@ -150,16 +143,16 @@ namespace CrossedCastReceiver
         }
         void Initvars()
         {
-            wdth = DeviceDisplay.MainDisplayInfo.Width * 0.78;
+            wdth = DeviceDisplay.MainDisplayInfo.Width*0.8;
             heit = DeviceDisplay.MainDisplayInfo.Height;
             d = wdth / heit;
             clearsurface();
-            skiascreen.WidthRequest = wdth / 2 - 5;
-            restwidth = DeviceDisplay.MainDisplayInfo.Width / 2 - skiascreen.WidthRequest;
-            SendButton.WidthRequest = restwidth / 4;
+            skiascreen.WidthRequest = wdth / 2;
+            restwidth = DeviceDisplay.MainDisplayInfo.Width * 0.07;
+            SendButton.WidthRequest = restwidth/4;
             MessageBox.WidthRequest = restwidth * 3 / 4;
             rest.WidthRequest = restwidth;
-
+            
             var tapImage = new TapGestureRecognizer();
             tapImage.Tapped += SendButton_Clicked;
             SendButton.GestureRecognizers.Add(tapImage);

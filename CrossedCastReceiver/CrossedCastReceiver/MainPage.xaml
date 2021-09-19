@@ -4,19 +4,23 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              x:Class="CrossedCastReceiver.MainPage">
 
-     <StackLayout Orientation="Horizontal">
-        <skia:SKCanvasView x:Name="skiascreen" PaintSurface="skiascreen_PaintSurface"/>
-        <StackLayout x:Name="rest">
-            <Button x:Name="speaker" Text="🔊"/>
+    <Grid x:Name="grid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        
+        <skia:SKCanvasView x:Name="skiascreen" Grid.Column="0" PaintSurface="skiascreen_PaintSurface" />
+        <StackLayout x:Name="rest" Grid.Column="1" Padding="0,0,5,0">
             <ScrollView x:Name="scroller" VerticalOptions="EndAndExpand">
                 <StackLayout x:Name="MessageList">
                 </StackLayout>
             </ScrollView>
             <StackLayout Orientation="Horizontal">
-                <Entry x:Name="MessageBox" HorizontalOptions="CenterAndExpand"/>
+                <Entry x:Name="MessageBox" />
                 <Image x:Name="SendButton" Source="send.png" />
             </StackLayout>
         </StackLayout>
-    </StackLayout> 
+    </Grid>
 
 </ContentPage>
